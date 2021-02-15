@@ -1,6 +1,7 @@
 package com.example.expansiondevida_casasdevida.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -22,17 +23,18 @@ class ViewModelCdv (application: Application) : AndroidViewModel(application) {
         }
 
         liveDataFromCdv = repositoryCdv.liveDataCdvDao
+        Log.d("livedata","$liveDataFromCdv")
     }
 
+    // fun getListCasaDeVida(name:String):LiveData<List<CasaDeVida>> = repositoryCdv.getListCasaDeVida(name)
 
-
-    fun getAllFavCasaDeVida(): LiveData<List<CasaDeVida>> = repositoryCdv.listCasaDeVidaFavority
+   // fun getAllFavCasaDeVida(): LiveData<List<CasaDeVida>> = repositoryCdv.listCasaDeVidaFavority
        //fav from dataBase
 
 
 
-    fun getCdvWhithCoroutines() = viewModelScope.launch {
-        repositoryCdv
+    fun getCdvWhithCoroutines(name:String) = viewModelScope.launch {
+        repositoryCdv.getcasaDeVida(name)
     }
 
 }

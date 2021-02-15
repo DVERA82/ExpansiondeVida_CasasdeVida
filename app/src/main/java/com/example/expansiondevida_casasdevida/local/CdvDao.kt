@@ -14,8 +14,16 @@ interface CdvDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun InsertAllfoto(lista: List<CasaDeVida>)
 
-    @Query("SELECT * FROM casadevida_table")
+    @Query("SELECT * FROM casadevida_table ")
     fun getAllCasaDeVida(): LiveData<List<CasaDeVida>>
+
+    //@Query("SELECT  * FROM   casadevida_table")
+    //fun getAllCdvBD():LiveData<List<CasaDeVida>>
+
+
+    @Query("SELECT * FROM casadevida_table WHERE id=:name")
+    fun getAllCdv(name: String): LiveData<List<CasaDeVida>>
+
 
 
 }

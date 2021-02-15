@@ -48,8 +48,8 @@ class FirstFragment : Fragment() {
         adapter.selectedItem().observe(viewLifecycleOwner, Observer {
            it?.let{
                val bundle= Bundle()
-               bundle.putString("LIST",it.list)
-             //  viewModel.getit.list)
+               bundle.putString("LISTA",it.id)
+               viewModel.getCdvWhithCoroutines(it.id)
                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment,bundle)
            }
 

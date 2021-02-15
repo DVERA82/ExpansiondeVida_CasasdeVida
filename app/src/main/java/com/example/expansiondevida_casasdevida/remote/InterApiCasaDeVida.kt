@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface InterApiCasaDeVida {
 
     @GET ("casasdeVida")
-    suspend fun fetchCasadevidaList(): Response<List<ResponseDataClass>>
+    suspend fun fetchCasadevidaList(): Response<ResponseDataClass>
 }
 

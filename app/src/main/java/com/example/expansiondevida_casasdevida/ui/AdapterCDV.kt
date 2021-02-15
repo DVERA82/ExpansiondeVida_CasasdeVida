@@ -1,5 +1,6 @@
 package com.example.expansiondevida_casasdevida.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +24,8 @@ class AdapterCDV : RecyclerView.Adapter<AdapterCDV.CdvViewHolder>() {
     inner class CdvViewHolder(private val binding: ItemCdvBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
         fun bind(casaDeVida: CasaDeVida) {
-            binding.idCDV
+            binding.textView.text = casaDeVida.id
+            Log.d("lista casa de vida","${casaDeVida.id}")
 
             itemView.setOnClickListener(this)
 
