@@ -24,7 +24,7 @@ class RepositoryCdv (private val dao: CdvDao) {
     }
 
     suspend fun getCdvWithCoroutines() {
-        //Log.d("REPOSITORY", "UTILIZANDO COROUTINES")
+        //Log.d("REPOSITORY", "UTILIZANDO COROUTINES"n)
         try {
             val response = RetrofitCasaDeVida.retrofitInstance().fetchCasadevidaList()
             when (response.isSuccessful) {
