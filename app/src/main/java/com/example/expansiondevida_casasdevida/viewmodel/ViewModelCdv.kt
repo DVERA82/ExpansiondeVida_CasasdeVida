@@ -30,7 +30,7 @@ class ViewModelCdv (application: Application) : AndroidViewModel(application) {
      fun getListCasaDeVida(name:String):LiveData<List<CasaDeVida>> = repositoryCdv.getcasaDeVida(name)
 
     //fun getAllFavCasaDeVida(): LiveData<List<CasaDeVida>> = repositoryCdv.listCasaDeVidaFavority
-       //fav from dataBase
+       //favo from dataBase
 
 
 
