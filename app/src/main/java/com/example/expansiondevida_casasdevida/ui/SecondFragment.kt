@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import com.example.expansiondevida_casasdevida.R
 import com.example.expansiondevida_casasdevida.databinding.FragmentSecondBinding
 import com.example.expansiondevida_casasdevida.viewmodel.ViewModelCdv
@@ -32,8 +33,8 @@ class SecondFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentSecondBinding.inflate(inflater, container, false)
@@ -45,31 +46,40 @@ class SecondFragment : Fragment() {
 
         var adapter = AdapterCDVinfo()
         binding.rvCdv2.adapter = adapter
-        binding.rvCdv2.layoutManager= GridLayoutManager(context,1)
+        binding.rvCdv2.layoutManager = GridLayoutManager(context, 1)
 
-       /* viewModel.getCdvWhithCoroutines().observer(viewLifecycleOwner, Observer (
-            it?.let{
-                Log.d("LISTADO ", it.toString())
-                adapter.update(it)
-
-            }
-        })*/
-        /*  adapter.selectedItem().observe(viewLifecycleOwner, Observer {
+        viewModel.getListCasaDeVida(idCDV).observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             it?.let {
-                if (it.favority) {
-                    it.favority = false
-                    viewModel.updateFavorityImages(it)
-                    Toast.makeText(context, "ya no es favorito", Toast.LENGTH_LONG).show()
-                } else {
-                    it.favority = true
-                    viewModel.updateFavorityImages(it)
-                    Toast.makeText(context, "añadido a fav", Toast.LENGTH_LONG).show()
-                }
-
-
+                adapter.update(it)
             }
-        })*/
+        })
+
     }
 
 }
+           /*Log.d("LISTA ",it.toString())
+                adapter.update(it)
+        })
+
+        }
+            adapter.selectedItem().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            it?.let {
+            if (it.favority) {
+                it.favority = false
+                viewModel.updateFavorityImages(it)
+                Toast.makeText(context, "ya no es favorito", Toast.LENGTH_LONG).show()
+            } else {
+
+                it.favority = true
+                viewModel.updateFavorityImages(it)
+                Toast.makeText(context, "añadido a fav", Toast.LENGTH_LONG).show()
+
+              }
+            }
+
+
+        })*/
+
+
+
 

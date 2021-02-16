@@ -37,7 +37,8 @@ class RepositoryCdv (private val dao: CdvDao) {
                 false -> Log.d("ERROR", " ${response.code()} : ${response.errorBody()}")
             }
 
-        } catch (t: Throwable) {
+        }
+        catch (t: Throwable) {
             Log.e("ERROR COROUTINA",t.message.toString())
         }
 

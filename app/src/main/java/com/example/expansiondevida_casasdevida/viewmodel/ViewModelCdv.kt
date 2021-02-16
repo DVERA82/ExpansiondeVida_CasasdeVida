@@ -24,11 +24,12 @@ class ViewModelCdv (application: Application) : AndroidViewModel(application) {
 
         liveDataFromCdv = repositoryCdv.liveDataCdvDao
         Log.d("livedata","$liveDataFromCdv")
+
     }
 
-    // fun getListCasaDeVida(name:String):LiveData<List<CasaDeVida>> = repositoryCdv.getListCasaDeVida(name)
+     fun getListCasaDeVida(name:String):LiveData<List<CasaDeVida>> = repositoryCdv.getcasaDeVida(name)
 
-   // fun getAllFavCasaDeVida(): LiveData<List<CasaDeVida>> = repositoryCdv.listCasaDeVidaFavority
+    //fun getAllFavCasaDeVida(): LiveData<List<CasaDeVida>> = repositoryCdv.listCasaDeVidaFavority
        //fav from dataBase
 
 

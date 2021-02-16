@@ -47,6 +47,7 @@ class FirstFragment : Fragment() {
         })
         adapter.selectedItem().observe(viewLifecycleOwner, Observer {
            it?.let{
+               Log.d("lista casa de vida","it.id")
                val bundle= Bundle()
                bundle.putString("LISTA",it.id)
                viewModel.getCdvWhithCoroutines(it.id)

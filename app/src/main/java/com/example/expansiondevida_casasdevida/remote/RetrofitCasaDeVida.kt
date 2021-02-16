@@ -5,9 +5,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitCasaDeVida {
 
-
-
-
     companion object{
         private const val URL_BASE ="https://demo1791984.mockable.io/"
 
