@@ -23,19 +23,22 @@ class ViewModelCdv (application: Application) : AndroidViewModel(application) {
         }
 
         liveDataFromCdv = repositoryCdv.liveDataCdvDao
-        Log.d("livedata","$liveDataFromCdv")
+        Log.d("livedata", "$liveDataFromCdv")
 
     }
 
-     fun getListCasaDeVida(name:String):LiveData<List<CasaDeVida>> = repositoryCdv.getcasaDeVida(name)
+    fun getListCasaDeVida(name: String): LiveData<List<CasaDeVida>> = repositoryCdv.getcasaDeVida(name)
 
-    //fun getAllFavCasaDeVida(): LiveData<List<CasaDeVida>> = repositoryCdv.listCasaDeVidaFavority
-       //favo from dataBase
+    fun getAllFavouriteFoto(): LiveData<List<CasaDeVida>> = repositoryCdv.listFavouriteFoto
 
-
-
-    fun getCdvWhithCoroutines(name:String) = viewModelScope.launch {
+    fun getCdvWhithCoroutines(name: String) = viewModelScope.launch {
         repositoryCdv.getcasaDeVida(name)
+
     }
+    fun updateFavouritefoto(casaDeVida: CasaDeVida) = viewModelScope.launch {
+        repositoryCdv.updateFavouritefoto(casaDeVida)
+
+    }
+
 
 }

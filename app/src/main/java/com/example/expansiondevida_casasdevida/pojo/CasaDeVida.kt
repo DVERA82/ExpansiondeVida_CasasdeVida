@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 
 @Entity(tableName= "casadevida_table")
-data class CasaDeVida(
+data class CasaDeVida(@SerializedName("id")
     @PrimaryKey val id: String,
 
     @SerializedName("foto")
@@ -29,6 +29,10 @@ data class CasaDeVida(
 
     @SerializedName("celular")
     val celular: String,
+
     @SerializedName("correo")
-    val correo: String,)
+    val correo: String,
+
+    @SerializedName("favourite")
+                      var favourite: Boolean)
 

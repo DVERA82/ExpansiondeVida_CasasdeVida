@@ -2,6 +2,7 @@
 package com.example.expansiondevida_casasdevida.ui
 
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,8 +53,15 @@ class AdapterCDVinfo : RecyclerView.Adapter<AdapterCDVinfo.InfoViewHolder>() {
                     .load(casaDeVida.foto)
                     .into(binding.imageViewFoto)
 
+            if (casaDeVida.favourite) {
+                binding.ivFav.setColorFilter(Color.RED)
+            } else {
+                binding.ivFav.setColorFilter(Color.BLACK)
+            }
             itemView.setOnClickListener(this)
         }
+
+
 
         override fun onClick(v: View?) {
             selectedItem.value = listcdv[adapterPosition]

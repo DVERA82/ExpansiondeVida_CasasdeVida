@@ -9,22 +9,23 @@ class RepositoryCdv (private val dao: CdvDao) {
 
     private val services = RetrofitCasaDeVida.retrofitInstance()
     val liveDataCdvDao: LiveData<List<CasaDeVida>> = dao.getAllCasaDeVida()
-    //val listCasaDeVidaFavority = dao.getAllCasaDeVida()
-    //val liveDataCdvDB: LiveData<List<CasaDeVida>> = dao.getAllCdvBD()
+    val listFavouriteFoto= dao.getAllFavouriteFoto()
+
+
 
     fun converterCdv(converterCdv: List<DataClassRes>): List<CasaDeVida> {
         val listEntityCdv: MutableList<CasaDeVida> = mutableListOf()
         converterCdv.map {
-           listEntityCdv.add(CasaDeVida(id = it.id,nombre_lider = it.nombre_lider,foto = it.foto,
-               dia = it.dia, hora = it.hora, direccion = it.direccion,comuna = it.comuna,
-               celular = it.celular, correo = it.correo))
+            listEntityCdv.add(CasaDeVida(id = it.id, nombre_lider = it.nombre_lider, foto = it.foto,
+                    dia = it.dia, hora = it.hora, direccion = it.direccion, comuna = it.comuna,
+                    celular = it.celular, correo = it.correo, favourite = it.Favourite))
         }
 
         return listEntityCdv
     }
 
     suspend fun getCdvWithCoroutines() {
-        //Log.d("REPOSITORY", "UTILIZANDO COROUTINES"nr)
+
         try {
             val response = RetrofitCasaDeVida.retrofitInstance().fetchCasadevidaList()
             when (response.isSuccessful) {
@@ -37,13 +38,16 @@ class RepositoryCdv (private val dao: CdvDao) {
                 false -> Log.d("ERROR", " ${response.code()} : ${response.errorBody()}")
             }
 
-        }
-        catch (t: Throwable) {
-            Log.e("ERROR COROUTINA",t.message.toString())
+        } catch (t: Throwable) {
+            Log.e("ERROR COROUTINA", t.message.toString())
         }
 
     }
-    fun getcasaDeVida(name:String): LiveData<List<CasaDeVida>> = dao.getAllCdv(name)
 
+    fun getcasaDeVida(name: String): LiveData<List<CasaDeVida>> = dao.getAllCdv(name)
+
+   suspend fun updateFavouritefoto(casaDeVida: CasaDeVida) {
+       dao.updateCasaDeVida(casaDeVida)
+   }
 
 }

@@ -54,32 +54,25 @@ class SecondFragment : Fragment() {
             }
         })
 
-    }
 
-}
-           /*Log.d("LISTA ",it.toString())
-                adapter.update(it)
-        })
-
-        }
-            adapter.selectedItem().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+        adapter.selectedItem().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             it?.let {
-            if (it.favority) {
-                it.favority = false
-                viewModel.updateFavorityImages(it)
-                Toast.makeText(context, "ya no es favorito", Toast.LENGTH_LONG).show()
-            } else {
+                if (it.favourite) {
+                    it.favourite = false
+                    viewModel.updateFavouritefoto(it)
+                    Toast.makeText(context, "ya no es favorito", Toast.LENGTH_LONG).show()
+                } else {
 
-                it.favority = true
-                viewModel.updateFavorityImages(it)
-                Toast.makeText(context, "añadido a fav", Toast.LENGTH_LONG).show()
+                    it.favourite = true
+                    viewModel.updateFavouritefoto(it)
+                    Toast.makeText(context, "añadido a fav", Toast.LENGTH_LONG).show()
 
-              }
+                }
             }
 
 
-        })*/
+        })
 
+    }
 
-
-
+}

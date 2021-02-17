@@ -27,4 +27,6 @@ data class  DataClassRes ( @SerializedName("id")
                             val celular: String,
 
                             @SerializedName("correo")
-                            val correo: String )
+                            val correo: String,
+                            @SerializedName("favourite")
+                            var Favourite: Boolean)
