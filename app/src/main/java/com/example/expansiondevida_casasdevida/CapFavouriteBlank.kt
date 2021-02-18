@@ -22,7 +22,7 @@ class CapFavouriteBlank : Fragment() {
 
     private lateinit var binding: FragmentCapFavouriteBlankBinding
     private val viewModel: ViewModelCdv by activityViewModels()
-
+    var int=0
 
 
     override fun onCreateView(
