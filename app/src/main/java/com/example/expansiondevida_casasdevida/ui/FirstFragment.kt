@@ -16,9 +16,7 @@ import com.example.expansiondevida_casasdevida.R
 import com.example.expansiondevida_casasdevida.databinding.FragmentFirstBinding
 import com.example.expansiondevida_casasdevida.viewmodel.ViewModelCdv
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
+
 class FirstFragment : Fragment() {
 
     private lateinit var binding:FragmentFirstBinding
@@ -28,7 +26,7 @@ class FirstFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         binding= FragmentFirstBinding.inflate(inflater,container,false)
         return binding.root
     }

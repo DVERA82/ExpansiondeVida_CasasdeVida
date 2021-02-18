@@ -24,5 +24,13 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_capFavouriteBlank"
+            app:destination="@id/capFavouriteBlank" />
     </fragment>
+    <fragment
+        android:id="@+id/capFavouriteBlank"
+        android:name="com.example.expansiondevida_casasdevida.CapFavouriteBlank"
+        android:label="fragment_cap_favourite_blank"
+        tools:layout="@layout/fragment_cap_favourite_blank" />
 </navigation>

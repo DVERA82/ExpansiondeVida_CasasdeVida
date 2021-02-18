@@ -17,9 +17,7 @@ import com.example.expansiondevida_casasdevida.databinding.FragmentSecondBinding
 import com.example.expansiondevida_casasdevida.viewmodel.ViewModelCdv
 import java.util.*
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
+
 class SecondFragment : Fragment() {
     private lateinit var binding: FragmentSecondBinding
     private val viewModel: ViewModelCdv by activityViewModels()
@@ -36,7 +34,7 @@ class SecondFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -53,7 +51,9 @@ class SecondFragment : Fragment() {
                 adapter.update(it)
             }
         })
-
+        binding.favouriteCap.setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_capFavouriteBlank)
+        }
 
         adapter.selectedItem().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             it?.let {
