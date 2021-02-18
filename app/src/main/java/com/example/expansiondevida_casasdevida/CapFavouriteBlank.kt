@@ -17,7 +17,7 @@ import com.example.expansiondevida_casasdevida.ui.AdapterCDVinfo
 import com.example.expansiondevida_casasdevida.ui.AdapterCapFav
 import com.example.expansiondevida_casasdevida.viewmodel.ViewModelCdv
 
-
+//a
 class CapFavouriteBlank : Fragment() {
 
     private lateinit var binding: FragmentCapFavouriteBlankBinding
